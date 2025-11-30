@@ -1,26 +1,160 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>My GitHub Website</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kunal Patil — Enterprise Architect</title>
+  <meta name="description" content="Kunal Patil — Enterprise Architect. Solutions architecture, cloud migration, AI & automation, enterprise modernization, articles and recommendations."/>
+  <meta property="og:title" content="Kunal Patil — Enterprise Architect" />
+  <meta property="og:description" content="Solutions architecture, cloud modernization, AI/ML, automation, and enterprise strategy." />
+  <meta property="og:image" content="/assets/img/og-image.svg" />
+  <meta property="og:type" content="website" />
+  <meta name="author" content="Kunal Patil" />
+  <link rel="icon" href="/assets/img/favicon.svg" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
-  <h1>Welcome to my website!</h1>
-  <p>This is hosted totally free on GitHub Pages.</p>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar">KP</div>
+        <div>
+          <h1>Kunal Patil</h1>
+          <p class="muted">Enterprise Architect · Solutions, Cloud, AI & Automation</p>
+        </div>
+      </div>
+      <nav>
+        <button class="btn" id="theme-toggle" aria-label="Toggle dark/light">🌗</button>
+        <a class="btn" href="#articles">Articles</a>
+        <a class="btn" href="#recommendations">Recommendations</a>
+        <a class="btn" href="#contact">Contact</a>
+        <a class="btn btn-primary" href="/assets/Kunal-Patil-Resume.pdf" download>Download Resume</a>
+      </nav>
+    </header>
 
-  <a href="https://www.linkedin.com/in/patilkunals/" 
-   target="_blank" 
-   style="
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #0077b5;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      font-family: Arial;
-   ">
-   Connect on LinkedIn
-</a>
+    <section class="hero">
+      <div class="card hero-left">
+        <h2>Enterprise Architect — Cloud · Integration · Automation</h2>
+        <p class="tagline">Helping enterprises modernize legacy landscapes, migrate to cloud, and deliver resilient, secure platforms that support AI and automation at scale.</p>
 
+        <div class="skills" aria-hidden="true">
+          <span class="skill">Enterprise Architecture</span>
+          <span class="skill">Cloud (AWS)</span>
+          <span class="skill">Microservices</span>
+          <span class="skill">Integration / APIs</span>
+          <span class="skill">AI / GenAI</span>
+          <span class="skill">SWIFT / Banking</span>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><b>19+</b><span class="tag">Years experience</span></div>
+          <div class="metric"><b>20+</b><span class="tag">Enterprise programs</span></div>
+          <div class="metric"><b>100s</b><span class="tag">Designs & diagrams</span></div>
+        </div>
+
+        <div class="about">
+          <p>I'm an experienced technology leader focused on architecture, cloud migration (AWS), system modernization, and building teams that deliver robust enterprise solutions. I design pragmatic architectures that balance business outcomes with operational excellence.</p>
+          <p class="muted small">Highlights: AWS Certified, multi-domain experience (Banking, Insurance, Retail, Telecom), SWIFT integrations, and hands-on migration & modernization projects.</p>
+        </div>
+      </div>
+
+      <aside class="profile-side card">
+        <div class="avatar-lg">
+          <img src="/assets/img/avatar.jpg" alt="Kunal Patil" id="profile-img"/>
+        </div>
+        <div class="name">Kunal Patil</div>
+        <div class="muted">Enterprise Architect</div>
+
+        <div class="contact">
+          <div class="link"><strong>Email:</strong>&nbsp;<a href="mailto:your.email@domain.com">your.email@domain.com</a></div>
+          <div class="link"><strong>Location:</strong>&nbsp;<span>Mumbai, India</span></div>
+          <div class="link"><strong>LinkedIn:</strong>&nbsp;<a href="https://www.linkedin.com/in/patilkunals/" target="_blank">patilkunals</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <div class="sections">
+        <section class="card articles" id="articles">
+          <h3>Featured Articles</h3>
+          <p class="tagline">Selected thought leadership & posts about AI, architecture and automation.</p>
+
+          <div class="article-list">
+            <!-- Articles (links supplied by you) -->
+            <article class="article">
+              <div class="meta">
+                <h3><a href="https://www.linkedin.com/pulse/exploring-ai-insights-personality-kunal-patil-fnphf" target="_blank">Exploring AI — Insights & Personality</a></h3>
+                <p class="muted">Thoughts on how AI reshapes decision-making and personal workflows.</p>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <aside class="right-col">
+          <div class="card" id="recommendations">
+            <h3>Recommendations</h3>
+            <p class="tagline">Testimonials & recommendations from peers and clients.</p>
+            <div class="muted small">
+              <p>View full recommendations on LinkedIn:</p>
+              <p><a href="https://www.linkedin.com/in/patilkunals/details/recommendations/?detailScreenTabIndex=0" target="_blank">LinkedIn — Recommendations</a></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Core Experience</h4>
+            <div class="experience">
+              <div class="exp-item">
+                <strong>Solutions & Enterprise Architecture</strong>
+                <div class="muted small">Designing end-to-end solutions, architecture blueprints, migration strategies.</div>
+              </div>
+              <div class="exp-item">
+                <strong>Cloud Migrations (AWS)</strong>
+                <div class="muted small">Lift-and-shift, re-platforming, containerization, cost optimisation.</div>
+              </div>
+              <div class="exp-item">
+                <strong>Integration & Payments</strong>
+                <div class="muted small">API-first design, SWIFT, messaging, event-driven patterns.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Tools & Technologies</h4>
+            <div class="tools">
+              <span class="skill">Java</span>
+              <span class="skill">Spring</span>
+              <span class="skill">Docker</span>
+              <span class="skill">Kubernetes</span>
+              <span class="skill">AWS</span>
+              <span class="skill">Kafka</span>
+              <span class="skill">Redis</span>
+              <span class="skill">Oracle</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="card" id="contact">
+        <h3>Contact</h3>
+        <p class="tagline">Open to Architecture, Advisory & leadership conversations.</p>
+        <p class="muted small">Email: <a href="mailto:your.email@domain.com">your.email@domain.com</a> · LinkedIn: <a href="https://www.linkedin.com/in/patilkunals/" target="_blank">patilkunals</a></p>
+
+        <form id="contact-form" style="margin-top:12px">
+          <input id="name" name="name" placeholder="Your name" required />
+          <input id="email" name="email" placeholder="Your email" required />
+          <textarea id="message" name="message" placeholder="Message" rows="4" required></textarea>
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Kunal Patil — Enterprise Architect · <a href="https://patilkunals.github.io/">patilkunals.github.io</a></div>
+    </footer>
+  </div>
+
+  <script src="/assets/js/script.js" defer></script>
 </body>
 </html>
