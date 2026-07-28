@@ -75,9 +75,6 @@ extra:
       link: https://linkedin.com/in/patilkunal
     - icon: fontawesome/brands/github
       link: https://github.com/patilkunals
-  analytics:
-    provider: google
-    property: !ENV GOOGLE_ANALYTICS_ID
 
 # Copyright
 copyright: "© 2026 Kunal Patil. All rights reserved."
