@@ -6,7 +6,6 @@ site_url: "https://patilkunals.github.io/"
 # Build settings
 docs_dir: website
 site_dir: site
-build_dir: build
 
 # Navigation
 nav:
@@ -18,7 +17,6 @@ nav:
 # Theme configuration
 theme:
   name: material
-  custom_dir: overrides
   palette:
     # Light mode
     - scheme: default
