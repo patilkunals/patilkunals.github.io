@@ -1,0 +1,61 @@
+---
+import ThemeSwitcher from './ThemeSwitcher.astro';
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  navItems?: NavItem[];
+}
+
+const {
+  navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/resume', label: 'Resume' },
+    { href: '/linkedin-posts', label: 'Articles & Posts' },
+    { href: '/testimonials', label: 'Testimonials' },
+    { href: '/contact', label: 'Contact' },
+  ],
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+
+function isCurrent(href: string) {
+  if (href === '/') {
+    return pathname === '/';
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+---
+
+<header class="nav-glass sticky top-0 z-50">
+  <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3" aria-label="Primary">
+    <a href="/" class="eyebrow text-sm font-semibold tracking-[0.26em] text-slate-100">KUNAL PATIL</a>
+    <ul class="flex flex-wrap items-center gap-2 sm:gap-4">
+      {navItems.map((item) => (
+        <li>
+          {
+            (() => {
+              const current = isCurrent(item.href);
+              return (
+          <a
+            href={item.href}
+            aria-current={current ? 'page' : undefined}
+            class={`nav-link rounded-full px-3 py-2 text-xs font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 ${
+              current ? 'nav-active' : ''
+            }`}
+          >
+            {item.label}
+          </a>
+              );
+            })()
+          }
+        </li>
+      ))}
+    </ul>
+    <ThemeSwitcher />
+  </nav>
+</header>

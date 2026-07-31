@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  excerpt: string;
+  postDate: string | null;
+  pdfUrl: string;
+  pdfFile: string;
+  slug: string;
+  source: 'sidecar' | 'pdf-extraction';
+}
+
+const { title, excerpt, postDate, pdfUrl, pdfFile, slug, source } = Astro.props;
+---
+
+<article class="glass-card reveal flex flex-col rounded-2xl p-5">
+  <div class="mb-3 flex items-center gap-2">
+    {postDate && <time class="text-xs text-slate-200">{postDate}</time>}
+  </div>
+
+  <h3 class="text-lg font-semibold text-slate-50">{title}</h3>
+  <p class="mt-2 text-sm leading-6 text-slate-200">{excerpt}</p>
+
+  <a
+    href={`/linkedin-posts/${slug}`}
+    aria-label={`Read LinkedIn post: ${title}`}
+    class="glass-link mt-5 inline-flex rounded-md px-3 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+  >
+    Read Post
+  </a>
+</article>

@@ -1,0 +1,105 @@
+---
+import { themes } from '../config/site';
+---
+
+<div
+  class="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-2.5 py-1.5 backdrop-blur"
+  role="group"
+  aria-label="Appearance settings"
+>
+  <!-- Mode toggle -->
+  <button
+    id="mode-toggle"
+    aria-label="Toggle colour mode"
+    title="Toggle light/dark mode"
+    class="flex h-6 w-6 items-center justify-center rounded-full text-slate-200 transition hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+  >
+    <!-- Sun (shown in dark mode, click to go light) -->
+    <svg id="icon-sun" class="hidden h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4"/>
+      <line x1="12" y1="2"  x2="12" y2="4"/>
+      <line x1="12" y1="20" x2="12" y2="22"/>
+      <line x1="2"  y1="12" x2="4"  y2="12"/>
+      <line x1="20" y1="12" x2="22" y2="12"/>
+      <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64"/>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+      <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+    </svg>
+    <!-- Moon (shown in light mode, click to go dark) -->
+    <svg id="icon-moon" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+
+  <div class="h-3.5 w-px bg-white/25"></div>
+
+  <!-- Theme swatches -->
+  <div class="flex items-center gap-1" role="radiogroup" aria-label="Colour theme">
+    {themes.map((t) => (
+      <button
+        data-theme-pick={t.id}
+        role="radio"
+        aria-checked="false"
+        aria-label={`${t.label} theme`}
+        title={t.label}
+        class="theme-swatch h-4 w-4 rounded-full border-2 border-transparent transition-all hover:scale-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+        style={`background: ${t.color};`}
+      />
+    ))}
+  </div>
+</div>
+
+<script>
+  const THEME_KEY = 'kp-theme';
+  const MODE_KEY  = 'kp-mode';
+
+  function applyTheme(theme: string, mode: string) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-mode', mode);
+    localStorage.setItem(THEME_KEY, theme);
+    localStorage.setItem(MODE_KEY, mode);
+    syncUI(theme, mode);
+  }
+
+  function syncUI(theme: string, mode: string) {
+    // Mode icons
+    const sun  = document.getElementById('icon-sun');
+    const moon = document.getElementById('icon-moon');
+    if (sun && moon) {
+      sun.classList.toggle('hidden', mode !== 'dark');
+      moon.classList.toggle('hidden', mode === 'dark');
+    }
+    // Swatch active rings
+    document.querySelectorAll<HTMLButtonElement>('[data-theme-pick]').forEach((btn) => {
+      const active = btn.dataset.themePick === theme;
+      btn.setAttribute('aria-checked', active ? 'true' : 'false');
+      btn.style.outline = active ? `2px solid ${btn.style.background}` : '';
+      btn.style.outlineOffset = active ? '2px' : '';
+    });
+  }
+
+  // Hydrate from current document attributes (set server-side / FOUC script)
+  const initTheme = document.documentElement.getAttribute('data-theme') || 'ocean';
+  const initMode  = document.documentElement.getAttribute('data-mode')  || 'light';
+  syncUI(initTheme, initMode);
+
+  // Mode toggle
+  document.getElementById('mode-toggle')?.addEventListener('click', () => {
+    const mode = document.documentElement.getAttribute('data-mode') || 'light';
+    applyTheme(
+      document.documentElement.getAttribute('data-theme') || 'ocean',
+      mode === 'dark' ? 'light' : 'dark',
+    );
+  });
+
+  // Theme swatches
+  document.querySelectorAll<HTMLButtonElement>('[data-theme-pick]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applyTheme(
+        btn.dataset.themePick!,
+        document.documentElement.getAttribute('data-mode') || 'light',
+      );
+    });
+  });
+</script>

@@ -1,0 +1,35 @@
+---
+interface Props {
+  firstName: string;
+  lastName: string;
+  company: string;
+  jobTitle: string;
+  text: string;
+  date: string;
+}
+
+const { firstName, lastName, company, jobTitle, text, date } = Astro.props;
+
+const initials = `${firstName[0]}${lastName[0]}`;
+const displayDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+---
+
+<article class="glass-card reveal flex flex-col rounded-2xl p-5">
+  <blockquote class="flex-1">
+    <p class="text-sm leading-7 text-slate-200">“{text}”</p>
+  </blockquote>
+
+  <footer class="mt-5 flex items-center gap-3 border-t border-white/15 pt-4">
+    <div
+      aria-hidden="true"
+      class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-200/40 bg-cyan-400/20 text-xs font-semibold text-cyan-100"
+    >
+      {initials}
+    </div>
+    <div class="min-w-0">
+      <p class="truncate text-sm font-semibold text-slate-100">{firstName} {lastName}</p>
+      <p class="truncate text-xs text-slate-300">{jobTitle}</p>
+      <p class="truncate text-xs text-slate-400">{company} &middot; <time datetime={date}>{displayDate}</time></p>
+    </div>
+  </footer>
+</article>

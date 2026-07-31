@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags?: string[];
+  coverImage?: string | null;
+  primaryLink?: string | null;
+}
+
+const { title, description, tags = [], coverImage = null, primaryLink = null } = Astro.props;
+---
+
+<article class="glass-card reveal rounded-2xl p-5">
+  {coverImage && (
+    <img
+      src={coverImage}
+      alt={`Cover image for ${title}`}
+      class="mb-4 h-40 w-full rounded-xl object-cover"
+      loading="lazy"
+    />
+  )}
+
+  <h3 class="text-lg font-semibold text-slate-50">{title}</h3>
+  <p class="mt-2 text-sm leading-6 text-slate-200">{description}</p>
+
+  {tags.length > 0 && (
+    <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tags">
+      {tags.map((tag) => (
+        <li class="glass-pill rounded-full px-2.5 py-1 text-xs">{tag}</li>
+      ))}
+    </ul>
+  )}
+
+  {primaryLink ? (
+    <a
+      href={primaryLink}
+      target="_blank"
+      rel="noreferrer"
+      class="glass-link mt-5 inline-flex rounded-md px-3 py-2 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+    >
+      Open Link
+    </a>
+  ) : (
+    <p class="mt-5 text-xs text-slate-400">PLACEHOLDER: Add frontmatter links for external references.</p>
+  )}
+</article>

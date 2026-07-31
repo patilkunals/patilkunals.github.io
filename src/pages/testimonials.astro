@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import data from '../data/testimonials.json';
+
+interface Testimonial {
+  firstName: string;
+  lastName: string;
+  company: string;
+  jobTitle: string;
+  text: string;
+  date: string;
+}
+
+const testimonials = data.testimonials as Testimonial[];
+
+const companies = [...new Set(testimonials.map((t) => t.company))];
+---
+
+<Layout
+  title="Testimonials | Kunal Patil"
+  description="LinkedIn recommendations from 20+ colleagues at Discovery, BNY, JPMorgan, Microsoft, Mobiquity, Citi and more."
+>
+  <section class="reveal">
+    <p class="eyebrow text-sm font-medium uppercase tracking-[0.2em] text-cyan-100">Social Proof</p>
+    <h1 class="mt-2 text-3xl font-bold text-slate-50 sm:text-4xl">What Colleagues Say</h1>
+    <p class="mt-3 max-w-3xl text-sm leading-6 text-slate-200">
+      {testimonials.length} LinkedIn recommendations from professionals across {companies.length} organisations
+      spanning 15+ years — Discovery, BNY, JPMorgan, Microsoft, Mobiquity, Citi, and more.
+    </p>
+  </section>
+
+  <section class="stagger mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {testimonials.map((t) => (
+      <TestimonialCard
+        firstName={t.firstName}
+        lastName={t.lastName}
+        company={t.company}
+        jobTitle={t.jobTitle}
+        text={t.text}
+        date={t.date}
+      />
+    ))}
+  </section>
+</Layout>

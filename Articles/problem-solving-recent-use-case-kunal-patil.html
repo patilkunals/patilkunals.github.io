@@ -1,0 +1,147 @@
+<html>
+<head>
+  <title>Problem Solving - A Recent Use Case</title>
+  <style>
+    body {
+      margin: 0 auto;
+      width: 744px;
+      font-family: Source Serif Pro, serif;
+      line-height: 32px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 21px;
+    }
+    h1, h2, h3 {
+      font-family: Source Sans Pro, Helvetica, Arial, sans-serif;
+    }
+    h1 a, h1 a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+    h1 {
+      line-height: 48px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 42px;
+      margin: 32px 0 20px;
+    }
+    h2 {
+      line-height: 32px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 26px;
+      margin: 28px 0;
+    }
+    h3 {
+      line-height: 28px;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 21px;
+      margin: 24px 0;
+    }
+    p {
+      margin: 32px 0;
+    }
+    .created, .published {
+      color: rgba(0, 0, 0, 0.55);
+      font-size: 15px;
+      line-height: 15px;
+      margin: 20px 0;
+    }
+    .created + .published {
+      margin-top: -12px;
+    }
+    blockquote {
+      font-family: Georgia, Source Serif Pro, serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 48px 120px;
+      text-align: center;
+    }
+    a {
+      word-wrap: break-word;
+      outline: none;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+      color: #008CC9;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #8C68CB;
+    }
+    .center {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      margin: 44px auto;
+    }
+    *:not(pre) + pre, pre:first-of-type {
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+    pre:only-of-type {
+      margin: 32px 0;
+      padding: 32px;
+    }
+    pre {
+      background: #F3F6F8;
+      overflow-x: auto;
+      display: block;
+      font-size: 13px;
+      font-family: monospace;
+      line-height: 13px;
+      padding: 0 32px 32px;
+      white-space: pre;
+    }
+    a.embedded {
+      background: #F3F6F8;
+      display: block;
+      padding: 32px;
+      margin: 32px 0;
+    }
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+    .slate-image-embed__resize-full-width img {
+      width: 100%;
+    }
+    .series-logo {
+      width: 48px;
+      height: 48px;
+      box-sizing: border-box;
+      background-clip: content-box;
+      border: 4px solid transparent;
+      border-radius: 6px;
+      object-fit: scale-down;
+      float: left;
+    }
+    .series-title {
+      font-size: 16px;
+      font-weight: 600;
+      vertical-align: top;
+    }
+    .series-description {
+      color: rgba(0,0,0,.6);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    div {
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+    <img src="https://media.licdn.com/mediaD4D12AQHyIauU--LIhQ" alt="Problem Solving " title="Problem Solving " />
+      <h1><a href="https://www.linkedin.com/pulse/problem-solving-recent-use-case-kunal-patil">Problem Solving - A Recent Use Case</a></h1>
+    <p class="created">Created on 2022-07-05 04:14</p>
+  <p class="published">Published on 2022-07-05 13:59</p>
+  <div><blockquote><br></blockquote><blockquote> "If I had an hour to solve a problem I'd spend 55 minutes thinking about the problem and 5 minutes thinking about solutions."</blockquote><blockquote>                                                     - Albert Einstein</blockquote><p><br></p><p>Recently I came across an interesting problem statement which required a bit of reverse engineering with on-premise and cloud solution. Here is the problem solving journey.</p><h2>Problem Statement</h2><p>The organization's business was severely impacted due to frequent downtime of middleware APIs. The goal was to improve overall uptime and performance of middleware APIs. We were dealing with business critical applications having 600+ APIs, 120+ internal/external consumers and 5 business units getting impacted.</p><h2>The Plan</h2><p>After initial discussions with stakeholders, following was the high level plan:</p><h3><strong>Phase 1 (short term goal):</strong></h3><ul><li>Root cause analysis for frequent downtime</li><li>Propose corrective actions to improve uptime</li></ul><h3><strong>Phase 2 (long term goal):</strong></h3><ul><li>Analyze the existing architecture</li><li>Propose blueprint for improved architecture</li></ul><p>I will be detailing only the Phase 1 in this article; for phase 2, I may publish another article.</p><h2>Root Cause Analysis</h2><p>After multiple discussions with stakeholders, support team, development team and analyzing application logs and configurations following were the findings:</p><ul><li>No rate limits defined for API</li><li>Inefficient API timeout configurations</li><li>Lack of API caching</li></ul><p>The above mentioned factors were overburdening API and ultimately downstream systems which was causing the downtime.</p><h3>Proposed Corrective Actions</h3><p>Considering root cause analysis, it was identified that we need to define API rate limits, efficient timeout values and enable API caching with appropriate time-to-live (TTL) values. </p><p>Few other hurdles were that, analytics reports or usage data was not available to identify reasonable values for parameters mentioned to improve the uptime. Fortunately there were access logs at API level which could be used to identify analytics data and usage patterns. Few examples of data points in access logs - Request/Response timestamps, consumer ID, Error codes, Timeout events, etc.</p><h2>The Solution</h2><p>I decided to follow reverse engineering to generate required analytics data and usage patterns based on the access logs to eventually come up to reasonable values for API - rate limit, timeout, and cache TTL.</p><h3><strong>Few more factors to be considered for the solution:</strong></h3><ul><li>Logs doesn't have consistency across and within API  e.g. for timestamp fields used were "Request_Time", "Request-in time", "Req.-timestamp", etc.</li><li>Logs contained sensitive data which should not be processed/stored as per organization policy e.g. Customer ID/Name</li><li>Existing application was on-premises and any new solution should be implemented on cloud as per organization strategy</li></ul><h3><strong>High Level Workflow:</strong></h3><ul><li>Process the log files (for last 3 years) on-premise for data sanitization, masking sensitive data and to have a common format with consistent data points</li><li>Push the sanitized log files to cloud storage</li><li>Process sanitized log files to generate analytics reports and usage patterns which should include data points (per API per consumer) like Average API call, Average timeout occurrences, Average Response time, Error patterns, Peak API utilization, API utilization pattern across the day/month</li><li>Use the analytics data and usage pattern to define and  implement API Rate Limit, Timeout and cache TTL</li><li>Monitor the API to track resulting uptime </li></ul><h3><strong>Tech Stack:</strong></h3><ul><li>Linux bash script - To trigger log file sanitization </li><li>Python - To parse and sanitize log files and push it to cloud storage</li><li>AWS - S3 (file storage), Glue (Automatic schema discovery with crawler), Athena (Query data to generate  analytics reports and usage patterns)</li></ul><p>Following diagram would depict solution:</p><div class="slate-resizable-image-embed slate-image-embed__resize-bleed"><img alt="Flow diagram explaining the logs parsing, processing and stats generation" data-media-urn="urn:li:digitalmediaAsset:D4D12AQGACCseT6NXOg" src="https://media.licdn.com/dms/image/v2/D4D12AQGACCseT6NXOg/article-inline_image-shrink_1500_2232/article-inline_image-shrink_1500_2232/0/1657028049620?e=1787184000&amp;v=beta&amp;t=Fc3EDRjBOXZH-Fy87uBYK8vNpZFFmtOcqBesuRE5cQ0"></div><h2>Results</h2><p>The solution was implemented successfully and after couple of months of monitoring it's observed that API uptime has <strong>improved by 78%</strong> which is quite impressive. Further I am planning to integrate AWS ML tools with Athena to generate predictions.</p><h2>Conclusion</h2><p>The complexity of the problem was low, but it was having very high business impact. Many times, it's handy to use reverse engineering to solve the problem instead of jumping on new implementation or redesigning.</p><p>Please let me know your thoughts about the solution explained here or if you think the solution could be improved or if there is better alternative.</p><p>Feel free to reach out to me over LinkedIn if you have an interesting problem to solve!</p></div>
+</body>
+</html>

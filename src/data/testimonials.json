@@ -1,0 +1,164 @@
+{
+  "testimonials": [
+    {
+      "firstName": "Terry",
+      "lastName": "Lloyd",
+      "company": "Discovery Limited",
+      "jobTitle": "Senior Software Development Manager",
+      "text": "Kunal is a Solutions Architect in my team and directly managing a team of 13 people made up of Developers, Business Analysts and Testers. Kunal is a pleasure to work with. He is professional, driven and extremely dedicated to providing the best technical solutions for complex projects, within tight deadlines. He works well with all stakeholders and teams and is highly respected and knowledgable.",
+      "date": "2024-09-15"
+    },
+    {
+      "firstName": "JoEllen",
+      "lastName": "Lamoureux",
+      "company": "Method",
+      "jobTitle": "Principal Product Manager",
+      "text": "I've had the opportunity to work with Kunal in his capacity of Tech Lead for two projects at Mobiquity. In this role, I relied on his skills around communication, coordination, reporting out status, team capacity and overall risks and progress of the Engineering team. He worked on a new initiative around WCAG compliance to guide our team to success, working across design, engineering and QA teams to support and structure. I wish him the best of luck in his new role and endeavors.",
+      "date": "2021-09-23"
+    },
+    {
+      "firstName": "Deepti",
+      "lastName": "Dubey",
+      "company": "Talent Arabia",
+      "jobTitle": "Scrum Master – Consultant ADCB Bank",
+      "text": "Kunal is a great professional, positive and helpful person who brings all the skills and expertise in accounting. I and Kunal worked on two projects together and it was always a pleasure working with him. He has great knowledge and expertise in AWS, Microservices, Project Architecture, and many more. Besides his expertise Kunal is a Great Leader and always motivates his team members. Team under his guidance, vision, and leadership always continues to grow. Kunal has earned everybody's respect in the company through his skills and values. Wherever Kunal will be he will be a great asset to the whole organization.",
+      "date": "2021-07-23"
+    },
+    {
+      "firstName": "Bhawana",
+      "lastName": "Goel",
+      "company": "Fraser Health Authority",
+      "jobTitle": "Senior Business Analyst, PMP",
+      "text": "Kunal was the tech lead for Kum & Go mobile team. Kunal exhibit excellent decision making, problem solving and leadership skills. He helped the team through some major deliveries in tight deadlines. He was very proactive in sharing comprehensive details with risks and challenges with the management. He is very articulate and technically strong. I saw his team learning and grooming under him. I also appreciate his people skills. I found Kunal very patient with the team, be it explaining requirements and technical aspects of changes or helping in any conflict resolution. It was a great opportunity for me to work with him.",
+      "date": "2021-07-20"
+    },
+    {
+      "firstName": "Stevan",
+      "lastName": "Gomes",
+      "company": "BNY",
+      "jobTitle": "Vice President",
+      "text": "I have been associated with Kunal since the past 3 years as we both worked on Amazon re:Invent and re:Mars projects. Kunal comes from a strong Java background and has great technical and managerial skills which makes him stand out from the crowd. Technically he is always accountable for whatever kind of work assigned to him. We shared a great camaraderie in both projects where he not only mentored me on improving Load Testing scripts, but also cleared a lot of concepts pertaining to AWS Services. Very recently he has taken up a new role as Solution Architect and there is no doubt that he is going to excel in that too.",
+      "date": "2021-07-17"
+    },
+    {
+      "firstName": "Komal",
+      "lastName": "Radkar",
+      "company": "Personal Group",
+      "jobTitle": "IT Business Analyst",
+      "text": "In my earlier project Amazon Re:Invent, I had the opportunity of working with Kunal where he was a Tech Lead. He has always led by example and kept the entire team motivated. His technical knowledge and people management skills are exceptional. As a senior member in the team, he is always committed to impart knowledge to other members. He always understands the bigger picture and client value in every piece of work that he delivers. 'Ridiculously efficient' is the phrase that comes to mind when I think about Kunal. His positive attitude and appetite for learning is what sets him apart.",
+      "date": "2020-04-16"
+    },
+    {
+      "firstName": "Swapnil",
+      "lastName": "Phalke",
+      "company": "JPMorgan Chase & Co.",
+      "jobTitle": "Senior Associate",
+      "text": "I worked with Kunal for almost 2 years. He has sound knowledge of Java/J2EE technologies. He always supported the team to grow in technical as well as professional perspective.",
+      "date": "2018-12-11"
+    },
+    {
+      "firstName": "Amruta",
+      "lastName": "Gaikwad",
+      "company": "Sarathi Softech",
+      "jobTitle": "Software Developer",
+      "text": "Kunal is hardworking and a very good team player. He has strong technical and analytical skills and is keen on finding solutions to every problem. As a good team leader he always motivates team members. It was a genuine pleasure working with him.",
+      "date": "2017-09-27"
+    },
+    {
+      "firstName": "Subhojit",
+      "lastName": "Roy",
+      "company": "IBM",
+      "jobTitle": "Senior Technical Staff Member, Storage Development",
+      "text": "I had worked with Kunal for a brief period while working in Profound Technologies. From whatever interactions I have had with Kunal, I have found him to be a hard working and enthusiastic individual. Both qualities that should hold him in good stead in his career.",
+      "date": "2014-09-27"
+    },
+    {
+      "firstName": "Nitin",
+      "lastName": "Joshi",
+      "company": "XOPS",
+      "jobTitle": "Staff Software Engineer",
+      "text": "Kunal has strong technical and interpersonal skills. He is a good team mate to work with. I have learned a lot from him during my initial phase of career.",
+      "date": "2012-10-16"
+    },
+    {
+      "firstName": "Vanita",
+      "lastName": "Gupta",
+      "company": "Clarice Technologies",
+      "jobTitle": "Technical Manager",
+      "text": "Kunal is very good at exploring and picking up new stuff. I have worked with Kunal for one of the new products and his performance was amazing from beginning until release. His high energy levels helped achieve many milestones. Would always like to work with him in future.",
+      "date": "2011-09-25"
+    },
+    {
+      "firstName": "Vikas",
+      "lastName": "Shelar",
+      "company": "Fortinet",
+      "jobTitle": "Manager Software Development",
+      "text": "Kunal is a very good technical, sincere and hardworking person. His knowledge in web technologies is really appreciable. He always keeps himself updated with the latest technologies. His logical and innovative approach towards work provides key inputs for the project which is very essential for success and robustness of the project. I enjoyed working with Kunal and it was really a great experience.",
+      "date": "2011-08-17"
+    },
+    {
+      "firstName": "Prachi",
+      "lastName": "Porlekar",
+      "company": "Citi India",
+      "jobTitle": "AVP Senior Business Analyst",
+      "text": "Kunal is a goal oriented person. His ability to think at a discrete level and attention to details makes him a great team player. He has good analytical and time management skills. He is loyal to his work. It is always a pleasure to work with him.",
+      "date": "2011-01-25"
+    },
+    {
+      "firstName": "Pratik",
+      "lastName": "Beri",
+      "company": "Audible",
+      "jobTitle": "Senior Technical Program Manager",
+      "text": "Kunal's great strength lies in his analysis of problems. He is more interested in identifying the most optimum solution as compared to the quickest solution. He will not compromise on quality. His technical repertoire is an inspiration to everyone. As a colleague, he was affable and it was always a pleasure to discuss solutions with him. He is quite understanding as a person and has a no nonsense attitude. Kunal is an invaluable resource for any organization he is associated with.",
+      "date": "2011-01-22"
+    },
+    {
+      "firstName": "Guruprasad",
+      "lastName": "Kanitkar",
+      "company": "South Asia FM Ltd",
+      "jobTitle": "Assistant Manager – Technical",
+      "text": "Very talented guy, soft spoken and down to earth.",
+      "date": "2010-01-10"
+    },
+    {
+      "firstName": "Vishwajeet",
+      "lastName": "Dusane",
+      "company": "Microsoft",
+      "jobTitle": "Principal Software Engineering Manager, Azure Storage",
+      "text": "Kunal is self organized and disciplined — the best developer I have ever seen. He has passion and a very unique way towards problems. I was very happy to work with him and together we have accomplished many milestones which are still one of the best things I have ever done.",
+      "date": "2009-12-23"
+    },
+    {
+      "firstName": "Bhooshan",
+      "lastName": "Supe",
+      "company": "LG Electronics",
+      "jobTitle": "Senior Staff Software Engineer",
+      "text": "Kunal is a very hard working software engineer with a positive attitude. Kunal has shown innovativeness in most of the tasks he has performed.",
+      "date": "2008-11-26"
+    },
+    {
+      "firstName": "Sandeep",
+      "lastName": "Chauhan",
+      "company": "PyxTech",
+      "jobTitle": "Product Management Consultant",
+      "text": "Kunal is sincere, hardworking and cheerful. I specially like his learning attitude — he learns and picks up new things fast. He is good in communication and reporting; he always made sure that there is no communication gap within the team. I was always satisfied by his work, its quality and delivery time. I could always depend on him.",
+      "date": "2008-11-25"
+    },
+    {
+      "firstName": "Venkatraman",
+      "lastName": "V",
+      "company": "KPIT",
+      "jobTitle": "Associate Vice President",
+      "text": "One thing I would be really appreciative of Kunal would be his work attitude. He is good at grasping things and is level headed when it comes to tough situations. I have hardly seen him slip on deadlines he had committed. A dedicated guy, who is dependable under pressure situations. A good team facilitator with all the qualities of a Team Lead.",
+      "date": "2008-11-07"
+    },
+    {
+      "firstName": "Nishigandh",
+      "lastName": "Joshi",
+      "company": "NJ Consultants",
+      "jobTitle": "Owner",
+      "text": "I have seen Kunal as a sincere, hardworking and reliable team member. He is capable of learning new things quickly. During a project execution, he keeps a good level of awareness regarding customer requirements. Besides his technical skills, Kunal is a good team member.",
+      "date": "2008-11-03"
+    }
+  ]
+}

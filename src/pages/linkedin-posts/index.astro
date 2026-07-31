@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LinkedInPostCard from '../../components/LinkedInPostCard.astro';
+import generated from '../../data/linkedin-posts.generated.json';
+
+interface LinkedInPost {
+  slug: string;
+  pdfFile: string;
+  pdfUrl: string;
+  title: string;
+  excerpt: string;
+  postDate: string | null;
+  source: 'sidecar' | 'pdf-extraction';
+}
+
+const posts = (generated.posts || []) as LinkedInPost[];
+
+// Sort newest first; nulls go to end
+const sortedPosts = [...posts].sort((a, b) => {
+  if (!a.postDate && !b.postDate) return 0;
+  if (!a.postDate) return 1;
+  if (!b.postDate) return -1;
+  return b.postDate.localeCompare(a.postDate);
+});
+---
+
+<Layout
+  title="LinkedIn Articles & Posts | Kunal Patil"
+  description="LinkedIn articles and posts with inline PDF reading, sorted newest first."
+>
+  <section class="reveal">
+    <h1 class="text-3xl font-bold text-slate-50 sm:text-4xl">LinkedIn Articles &amp; Posts</h1>
+    <p class="mt-3 max-w-3xl text-sm leading-6 text-slate-200">
+      Thought leadership articles and posts — click any card to read inline or download the PDF.
+    </p>
+  </section>
+
+  <section class="stagger mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {sortedPosts.map((post) => (
+      <LinkedInPostCard
+        title={post.title}
+        excerpt={post.excerpt}
+        postDate={post.postDate}
+        pdfUrl={post.pdfUrl}
+        pdfFile={post.pdfFile}
+        slug={post.slug}
+        source={post.source}
+      />
+    ))}
+  </section>
+</Layout>

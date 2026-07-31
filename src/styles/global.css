@@ -1,0 +1,344 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════
+   THEME VARIABLES
+   All visual tokens are CSS variables. Two axes:
+     [data-theme]  → accent colour family (ocean/aurora/ember/forest/rose)
+     [data-mode]   → light | dark
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Default: ocean dark ─────────────────────────────── */
+:root {
+  --accent-rgb:        92, 225, 230;
+  --accent-bright-rgb: 122, 241, 255;
+  --orb2-rgb:          126, 157, 255;
+
+  --bg-base:    #07131f;
+  --bg-deep:    #03070d;
+
+  --ink-strong: #f4fbff;
+  --ink-soft:   #d2dfec;
+  --ink-muted:  #a3b3c5;
+
+  --glass-bg:       rgba(222, 244, 255, 0.11);
+  --glass-border:   rgba(222, 244, 255, 0.26);
+  --glass-hover-bg: rgba(222, 244, 255, 0.20);
+
+  --shadow:       0 28px 56px rgba(0, 0, 0, 0.42);
+  --shadow-hover: 0 36px 70px rgba(0, 0, 0, 0.50);
+  --nav-bg:       rgba(7, 19, 31, 0.60);
+  --nav-border:   rgba(255, 255, 255, 0.18);
+}
+
+/* ── Aurora dark (violet) ─────────────────────────────── */
+html[data-theme="aurora"] {
+  --accent-rgb:        167, 139, 250;
+  --accent-bright-rgb: 196, 181, 253;
+  --orb2-rgb:          139,  92, 246;
+  --bg-base: #0d0a1f;
+  --bg-deep: #070514;
+  --glass-border: rgba(167, 139, 250, 0.26);
+}
+
+/* ── Ember dark (amber) ───────────────────────────────── */
+html[data-theme="ember"] {
+  --accent-rgb:        251, 191,  36;
+  --accent-bright-rgb: 252, 211,  77;
+  --orb2-rgb:          245, 158,  11;
+  --bg-base: #1a0f00;
+  --bg-deep: #0d0700;
+  --glass-border: rgba(251, 191, 36, 0.26);
+}
+
+/* ── Forest dark (emerald) ────────────────────────────── */
+html[data-theme="forest"] {
+  --accent-rgb:         52, 211, 153;
+  --accent-bright-rgb: 110, 231, 183;
+  --orb2-rgb:           16, 185, 129;
+  --bg-base: #001a0a;
+  --bg-deep: #000f06;
+  --glass-border: rgba(52, 211, 153, 0.26);
+}
+
+/* ── Rose dark ────────────────────────────────────────── */
+html[data-theme="rose"] {
+  --accent-rgb:        251, 113, 133;
+  --accent-bright-rgb: 253, 164, 175;
+  --orb2-rgb:          244,  63,  94;
+  --bg-base: #1a0010;
+  --bg-deep: #0d0008;
+  --glass-border: rgba(251, 113, 133, 0.26);
+}
+
+/* ── Light mode (all themes) — clean neutral base ─────── */
+html[data-mode="light"] {
+  /* Neutral near-white — no colour tint in base background */
+  --bg-base:    #f8fafc;
+  --bg-deep:    #f1f5f9;
+
+  /* Near-black text for WCAG-level contrast */
+  --ink-strong: #0f172a;
+  --ink-soft:   #334155;
+  --ink-muted:  #64748b;
+
+  /* Light cards still carry the active accent so swatches visibly change surfaces. */
+  --glass-bg:       linear-gradient(145deg, rgb(var(--accent-rgb) / 0.12), rgba(255, 255, 255, 0.94) 42%, rgb(var(--accent-bright-rgb) / 0.08));
+  --glass-border:   rgba(0, 0, 0, 0.09);
+  --glass-hover-bg: linear-gradient(145deg, rgb(var(--accent-rgb) / 0.20), rgba(255, 255, 255, 0.98) 46%, rgb(var(--accent-bright-rgb) / 0.14));
+
+  /* Depth shadows, not glow */
+  --shadow:       0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 8px rgba(0,0,0,0.08), 0 12px 36px rgba(0,0,0,0.14);
+
+  /* White nav */
+  --nav-bg:     rgba(255, 255, 255, 0.92);
+  --nav-border: rgba(0, 0, 0, 0.10);
+}
+
+/* Light mode theme overrides — only accent changes, bg stays neutral */
+html[data-theme="aurora"][data-mode="light"] {
+  --accent-rgb:        109,  40, 217;
+  --accent-bright-rgb: 124,  58, 237;
+  --glass-border: rgba(109, 40, 217, 0.14);
+}
+
+html[data-theme="ember"][data-mode="light"] {
+  --accent-rgb:        180,  83,  9;
+  --accent-bright-rgb: 217, 119,  6;
+  --glass-border: rgba(180, 83, 9, 0.14);
+}
+
+html[data-theme="forest"][data-mode="light"] {
+  --accent-rgb:         4, 120,  87;
+  --accent-bright-rgb:  5, 150, 105;
+  --glass-border: rgba(4, 120, 87, 0.14);
+}
+
+html[data-theme="rose"][data-mode="light"] {
+  --accent-rgb:        190,  18,  60;
+  --accent-bright-rgb: 225,  29,  72;
+  --glass-border: rgba(190, 18, 60, 0.14);
+}
+
+html[data-theme="ocean"][data-mode="light"] {
+  --accent-rgb:         8, 145, 178;
+  --accent-bright-rgb: 14, 116, 144;
+  --glass-border: rgba(8, 145, 178, 0.18);
+}
+
+/* ══════════════════════════════════════════════════════════
+   BASE
+   ══════════════════════════════════════════════════════════ */
+
+html { color-scheme: dark; }
+html[data-mode="light"] { color-scheme: light; }
+
+body {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--ink-soft);
+  background:
+    radial-gradient(900px circle at 10% -20%, rgb(var(--accent-rgb) / 0.20), transparent 42%),
+    radial-gradient(780px circle at 88%  8%, rgb(var(--orb2-rgb)    / 0.18), transparent 45%),
+    linear-gradient(150deg, var(--bg-base) 0%, var(--bg-deep) 76%);
+  min-height: 100vh;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 9999px;
+  filter: blur(80px);
+}
+body::before {
+  top: 15vh; left: -8rem;
+  width: 18rem; height: 18rem;
+  background: rgb(var(--accent-bright-rgb) / 0.24);
+}
+body::after {
+  right: -6rem; bottom: 10vh;
+  width: 15rem; height: 15rem;
+  background: rgb(var(--orb2-rgb) / 0.20);
+}
+
+/* Soften orbs and reduce radial blobs in light mode */
+html[data-mode="light"] body::before { background: rgb(var(--accent-rgb) / 0.08); }
+html[data-mode="light"] body::after  { background: rgb(var(--accent-rgb) / 0.05); }
+
+/* Light mode: nearly flat bg — very subtle accent wash only */
+html[data-mode="light"] body {
+  background:
+    radial-gradient(700px circle at 10% -20%, rgb(var(--accent-rgb) / 0.07), transparent 50%),
+    var(--bg-base);
+}
+
+h1, h2, h3, h4, h5, h6 { color: var(--ink-strong); letter-spacing: -0.02em; }
+
+/* Override Tailwind text-slate-* and text-cyan-* to use theme variables */
+.text-slate-50,
+.text-slate-100 { color: var(--ink-strong) !important; }
+
+.text-slate-200,
+.text-slate-300 { color: var(--ink-soft) !important; }
+
+.text-slate-400 { color: var(--ink-muted) !important; }
+
+.text-cyan-50,
+.text-cyan-100,
+.text-cyan-200,
+.text-fuchsia-100 { color: rgb(var(--accent-bright-rgb)) !important; }
+
+.text-cyan-300  { color: rgb(var(--accent-rgb)) !important; }
+
+/* ══════════════════════════════════════════════════════════
+   TYPOGRAPHY
+   ══════════════════════════════════════════════════════════ */
+
+.eyebrow {
+  font-family: "IBM Plex Mono", "Consolas", monospace;
+  color: rgb(var(--accent-bright-rgb));
+}
+
+/* ══════════════════════════════════════════════════════════
+   GLASS PRIMITIVES
+   ══════════════════════════════════════════════════════════ */
+
+.glass-card {
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease,
+    backdrop-filter 220ms ease;
+}
+
+.glass-card:hover,
+.glass-card:focus-within {
+  transform: translateY(-5px);
+  border-color: rgb(var(--accent-bright-rgb));
+  box-shadow: var(--shadow-hover);
+  background: var(--glass-hover-bg);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+}
+
+/* In light mode the hover border uses the accent at lower opacity to look crisp, not neon */
+html[data-mode="light"] .glass-card:hover,
+html[data-mode="light"] .glass-card:focus-within {
+  border-color: rgb(var(--accent-rgb) / 0.50);
+}
+
+html[data-mode="light"] .glass-card {
+  border-color: rgb(var(--accent-rgb) / 0.18);
+}
+
+.glass-pill {
+  border: 1px solid rgb(var(--accent-rgb) / 0.34);
+  background: rgb(var(--accent-rgb) / 0.13);
+  color: rgb(var(--accent-bright-rgb));
+}
+
+html[data-mode="light"] .glass-pill {
+  color: rgb(var(--accent-rgb));
+}
+
+.glass-link {
+  border: 1px solid rgb(var(--accent-rgb) / 0.40);
+  background: rgb(var(--accent-rgb) / 0.10);
+  color: rgb(var(--accent-rgb));
+  transition: background 170ms ease, border-color 170ms ease, transform 170ms ease;
+}
+
+.glass-link:hover,
+.glass-link:focus-visible {
+  background: rgb(var(--accent-rgb) / 0.18);
+  border-color: rgb(var(--accent-rgb) / 0.70);
+  transform: translateY(-1px);
+}
+
+.hero-panel {
+  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(130deg, var(--glass-hover-bg), var(--glass-bg)),
+    radial-gradient(circle at 8% 10%, rgb(var(--accent-rgb) / 0.10), transparent 45%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: var(--shadow);
+}
+
+html[data-mode="light"] .hero-panel {
+  background:
+    radial-gradient(circle at 92% 8%, rgb(var(--accent-bright-rgb) / 0.18), transparent 34%),
+    radial-gradient(circle at 4% 16%, rgb(var(--accent-rgb) / 0.14), transparent 38%),
+    linear-gradient(135deg, rgba(255,255,255,0.98), rgb(var(--accent-rgb) / 0.08));
+  border-color: rgb(var(--accent-rgb) / 0.20);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 8px 40px rgba(0,0,0,0.08);
+}
+
+.nav-glass {
+  border-bottom: 1px solid var(--nav-border);
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-active {
+  border: 1px solid rgb(var(--accent-rgb) / 0.50);
+  background: rgb(var(--accent-rgb) / 0.18);
+  color: rgb(var(--accent-bright-rgb)) !important;
+}
+
+.nav-link {
+  color: var(--ink-soft);
+  transition: background 170ms ease, color 170ms ease;
+}
+
+.nav-link:hover {
+  background: rgb(var(--accent-rgb) / 0.12);
+  color: var(--ink-strong);
+}
+
+/* ══════════════════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════════════════ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px) scale(0.985);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.stagger > * {
+  transition-delay: calc(var(--reveal-index, 0) * 75ms);
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE & ACCESSIBILITY
+   ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  body::before, body::after { filter: blur(64px); }
+  .glass-card:hover, .glass-card:focus-within { transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal, .reveal.is-visible { opacity: 1; transform: none; }
+}

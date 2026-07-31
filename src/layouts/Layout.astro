@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import { defaultTheme, defaultMode } from '../config/site';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Kunal Patil | Architecture Portfolio',
+	description = 'Solution architecture portfolio, resume, and LinkedIn thought leadership posts.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme={defaultTheme} data-mode={defaultMode}>
+	<head>
+		<!-- FOUC prevention: apply saved theme before first paint -->
+		<script is:inline>
+			(function(){
+				var t=localStorage.getItem('kp-theme');
+				var m=localStorage.getItem('kp-mode');
+				if(t) document.documentElement.setAttribute('data-theme',t);
+				if(m) document.documentElement.setAttribute('data-mode',m);
+			})();
+		</script>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url.href} />
+		<meta name="theme-color" content="#07131f" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<SiteHeader />
+		<main class="mx-auto max-w-6xl px-4 py-10">
+			<slot />
+		</main>
+		<script is:inline>
+			const revealItems = Array.from(document.querySelectorAll('.reveal'));
+			revealItems.forEach((item, index) => {
+				item.style.setProperty('--reveal-index', String(index % 8));
+			});
+
+			const showAll = () => revealItems.forEach((item) => item.classList.add('is-visible'));
+
+			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+				showAll();
+			} else {
+				const observer = new IntersectionObserver(
+					(entries, localObserver) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								localObserver.unobserve(entry.target);
+							}
+						});
+					},
+					{ threshold: 0.12, rootMargin: '0px 0px -60px 0px' },
+				);
+
+				revealItems.forEach((item) => observer.observe(item));
+			}
+		</script>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		min-height: 100%;
+	}
+</style>

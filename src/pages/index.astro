@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactLinks from '../components/ContactLinks.astro';
+import testimonials from '../data/testimonials.json';
+import linkedin from '../data/linkedin-posts.generated.json';
+
+const featured = testimonials.testimonials.slice(0, 3);
+const recentPosts = linkedin.posts.slice(0, 3);
+
+const stats = [
+  { value: '20+',   label: 'Years experience' },
+  { value: '$25M+', label: 'Cloud savings delivered' },
+  { value: '500K+', label: 'End-users served' },
+  { value: '30+',   label: 'Engineers mentored' },
+];
+
+const expertise = [
+  { icon: '🤖', title: 'GenAI & Agentic AI',    desc: 'RAG pipelines, LangChain/LangGraph orchestration, AWS Bedrock, MCP — production-grade, not proof-of-concept.' },
+  { icon: '☁️', title: 'Cloud Architecture',    desc: 'AWS serverless and microservices at scale. $25M+ in documented cloud transformation savings.' },
+  { icon: '🏦', title: 'Enterprise & BFSI',     desc: 'Core banking (T24, FLEXCUBE), digital banking, payments, AML, insurance — 20+ years of domain depth.' },
+  { icon: '🏗️', title: 'Solution Architecture', desc: 'End-to-end design ownership: fit-gap analysis, governance, RFP leadership, technical roadmaps.' },
+];
+---
+
+<Layout
+  title="Kunal Patil | Senior Solution Architect & GenAI Architect"
+  description="Associate Distinguished Engineer with 20+ years delivering cloud-native AI and enterprise platforms across BFSI, healthcare, and retail."
+>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="hero-panel reveal rounded-3xl p-8 sm:p-10">
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-center">
+      <div>
+        <p class="eyebrow text-xs font-medium uppercase tracking-[0.2em]">Associate Distinguished Engineer</p>
+        <h1 class="mt-3 text-4xl font-bold leading-tight text-slate-50 sm:text-5xl">
+          Kunal Patil
+        </h1>
+        <p class="mt-2 text-lg font-medium text-slate-100">
+          Senior Solution Architect &nbsp;·&nbsp; Principal Engineer &nbsp;·&nbsp; GenAI Architect
+        </p>
+        <p class="mt-4 max-w-2xl text-base leading-7 text-slate-200">
+          20+ years architecting cloud-native, AI-powered enterprise platforms across Core Banking, Insurance,
+          Healthcare, and Retail. Currently at Nagarro designing production-grade Agentic AI systems using
+          RAG, LangChain, LangGraph, and AWS Bedrock.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/resume"       class="glass-link rounded-md px-4 py-2 text-sm font-semibold">View Resume</a>
+          <a href="/linkedin-posts" class="glass-link rounded-md px-4 py-2 text-sm font-semibold">Articles &amp; Posts</a>
+          <a href="/testimonials" class="glass-link rounded-md px-4 py-2 text-sm font-semibold">Testimonials</a>
+        </div>
+      </div>
+      <aside class="rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur">
+        <ContactLinks compact />
+      </aside>
+    </div>
+  </section>
+
+  <!-- ── Impact Stats ──────────────────────────────────── -->
+  <section class="reveal mt-6">
+    <div class="stagger grid grid-cols-2 gap-3 sm:grid-cols-4">
+      {stats.map((s) => (
+        <div class="glass-card reveal rounded-2xl p-4 text-center">
+          <p class="text-2xl font-bold text-slate-50">{s.value}</p>
+          <p class="mt-1 text-xs text-slate-300">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Areas of Expertise ────────────────────────────── -->
+  <section class="reveal mt-8">
+    <h2 class="mb-4 text-xl font-bold text-slate-50">Areas of Expertise</h2>
+    <div class="stagger grid gap-3 sm:grid-cols-2">
+      {expertise.map((e) => (
+        <div class="glass-card reveal rounded-2xl p-5">
+          <p class="text-2xl">{e.icon}</p>
+          <h3 class="mt-2 text-base font-semibold text-slate-50">{e.title}</h3>
+          <p class="mt-1 text-sm leading-6 text-slate-200">{e.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Career Highlights ─────────────────────────────── -->
+  <section class="reveal mt-8">
+    <h2 class="mb-4 text-xl font-bold text-slate-50">Career Highlights</h2>
+    <div class="glass-card reveal rounded-2xl p-5 sm:p-6">
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Citi · Trade Finance</p>
+          <p class="mt-1 text-sm text-slate-200">Led 20-person team on TRIMS — <strong class="text-slate-50">$1.2M annual savings</strong>, uptime 93% → 99.9%, delivery cycle 4× faster.</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Nagarro · Cloud Transformation</p>
+          <p class="mt-1 text-sm text-slate-200">Middleware modernisation to AWS serverless — <strong class="text-slate-50">$25M+ savings</strong>, opex $8M → $2.2M, uptime 99.95%.</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Mobiquity · Neo Banking</p>
+          <p class="mt-1 text-sm text-slate-200">Omnichannel banking platform — <strong class="text-slate-50">50K+ customers</strong> in 8 months, $11.7M+ annual value, 99.97% uptime.</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Mobiquity · Fuel Pay</p>
+          <p class="mt-1 text-sm text-slate-200">Contactless payments app — <strong class="text-slate-50">500K+ users</strong>, $50M+ transactions, 4.4★ rating, 0.01% fraud rate.</p>
+        </div>
+      </div>
+      <div class="mt-4 border-t border-white/15 pt-4">
+        <a href="/resume#projects" class="glass-link inline-flex rounded-md px-3 py-1.5 text-xs font-medium">
+          See all projects in Resume →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Recent Articles ───────────────────────────────── -->
+  <section class="reveal mt-8">
+    <div class="mb-4 flex items-baseline justify-between">
+      <h2 class="text-xl font-bold text-slate-50">Recent Articles &amp; Posts</h2>
+      <a href="/linkedin-posts" class="text-xs text-slate-400 hover:text-slate-200">View all →</a>
+    </div>
+    <div class="stagger grid gap-3 sm:grid-cols-3">
+      {recentPosts.map((post) => (
+        <a href={`/linkedin-posts/${post.slug}`} class="glass-card reveal flex flex-col rounded-2xl p-4">
+          {post.postDate && (
+            <time class="text-xs text-slate-400">{new Date(post.postDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}</time>
+          )}
+          <h3 class="mt-2 text-sm font-semibold leading-snug text-slate-100">{post.title}</h3>
+          <p class="mt-2 line-clamp-2 text-xs leading-5 text-slate-300">{post.excerpt}</p>
+          <span class="mt-auto pt-3 text-xs font-medium" style="color: rgb(var(--accent-rgb))">Read →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Testimonial Highlights ────────────────────────── -->
+  <section class="reveal mt-8">
+    <div class="mb-4 flex items-baseline justify-between">
+      <h2 class="text-xl font-bold text-slate-50">What Colleagues Say</h2>
+      <a href="/testimonials" class="text-xs text-slate-400 hover:text-slate-200">All 20 recommendations →</a>
+    </div>
+    <div class="stagger grid gap-3 sm:grid-cols-3">
+      {featured.map((t) => (
+        <div class="glass-card reveal flex flex-col rounded-2xl p-5">
+          <p class="flex-1 text-sm leading-6 text-slate-200">
+            &#8220;{t.text.length > 160 ? t.text.slice(0, 157) + '…' : t.text}&#8221;
+          </p>
+          <footer class="mt-4 flex items-center gap-3 border-t border-white/15 pt-3">
+            <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-semibold"
+                 style="border-color: rgb(var(--accent-rgb) / 0.40); background: rgb(var(--accent-rgb) / 0.12); color: rgb(var(--accent-rgb))">
+              {t.firstName[0]}{t.lastName[0]}
+            </div>
+            <div class="min-w-0">
+              <p class="truncate text-xs font-semibold text-slate-100">{t.firstName} {t.lastName}</p>
+              <p class="truncate text-xs text-slate-400">{t.jobTitle} · {t.company}</p>
+            </div>
+          </footer>
+        </div>
+      ))}
+    </div>
+    <div class="mt-3 text-center">
+      <a href="/testimonials"
+         class="glass-link inline-flex rounded-md px-4 py-2 text-sm font-medium">
+        Read all 20 LinkedIn recommendations →
+      </a>
+    </div>
+  </section>
+
+</Layout>
