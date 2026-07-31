@@ -1,0 +1,242 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const competencies = [
+  { label: 'Solution & Enterprise Architecture', detail: 'Cloud-native, microservices, fit-gap analysis, governance, RFP leadership' },
+  { label: 'GenAI / Agentic AI', detail: 'RAG, LangChain, LangGraph, MCP, AWS Bedrock, Claude, prompt engineering, vector databases' },
+  { label: 'Cloud (AWS)', detail: 'EC2, ECS, EKS, Lambda, S3, RDS, DynamoDB, Bedrock, API Gateway, EventBridge, SQS/SNS, IAM, KMS' },
+  { label: 'Banking & Domain', detail: 'Core Banking (T24, FLEXCUBE), Digital/Neo Banking, Payments, AML, CRM, BFSI, Insurance, Retail, Telecom' },
+  { label: 'Backend & Languages', detail: 'Java, Python, Spring/Spring Boot, JavaScript, REST/SOAP APIs' },
+  { label: 'Leadership & Delivery', detail: 'SDLC ownership, technical roadmap, capacity planning, stakeholder management, mentorship (20+ engineers)' },
+  { label: 'Tools', detail: 'Sparx EA, PlantUML, Draw.io, JIRA, Confluence, Git/GitHub, Jenkins, SonarQube, Figma' },
+];
+
+const projects = [
+  {
+    title: 'Agentic Ops Platform',
+    client: 'Leading Healthcare & Pharma Client',
+    role: 'Solution Architect',
+    period: 'December 2025 – Present',
+    tech: 'Python, RAG, LangChain, LangGraph, AWS Lambda, DynamoDB, S3, PostgreSQL (pgvector)',
+    bullets: [
+      'Cloud-native operations automation platform converting SOP-driven business processes into structured, executable task configurations for AI agents.',
+      'Mentored a cross-functional team of 20+ (developers, BAs, testers) on solution design and delivery best practices, improving code quality and reducing rework.',
+      'Designed backend architecture spanning API Gateway, AWS Lambda, DynamoDB, and S3; built client, project, SOP-upload, connector, and dashboard modules.',
+      'Built SOP parsing, validation, and step-normalisation services transforming free-text SOPs into structured, agent-ready configurations.',
+      'Implemented RAG-based chatbot and knowledge management; integrated AWS Bedrock for normalising free-text agent steps into structured JSON tasks.',
+      'Designed the Agentic AI orchestration layer using LangChain/LangGraph patterns for agent configuration and execution readiness.',
+    ],
+  },
+  {
+    title: 'Digital Insurance Platform',
+    client: 'Leading Life Insurer, South Africa',
+    role: 'Solution Architect (SPOC)',
+    period: 'May 2023 – November 2025',
+    tech: 'AWS, Java, Microservices, Flutter, Camunda, T24, SWIFT',
+    bullets: [
+      'Enhanced digital capabilities with new insurance products, secure online premium payments, and WhatsApp-based automated customer notifications; drove policy persistency through targeted business conservation.',
+      'Led end-to-end technical delivery as SPOC for a team of 15+, owning solution design, client relationships, and delivery governance.',
+      'Architected WhatsApp notification workflows for Online Payments, Business Conservation, and Outbound Credit Control.',
+      'Delivered Bulk Quoting, Credit Control Reporting, and Business Conservation allocation capabilities.',
+    ],
+  },
+  {
+    title: 'National Home Loan Platform',
+    client: 'Leading Bank, UAE',
+    role: 'Solution Architect',
+    period: 'June 2022 – April 2023',
+    tech: 'AWS, Java, Microservices, Flutter, Camunda, T24, SWIFT',
+    bullets: [
+      'Architected end-to-end digital home-loan onboarding and KYC journey via mobile application, integrated with core banking, risk, and credit systems.',
+      'Delivered backend microservices and cloud-native integration on AWS; led fit-gap analysis across Core Banking (T24) and Payments (SWIFT).',
+    ],
+  },
+  {
+    title: 'Middleware Modernisation',
+    client: 'Leading Bank, UAE',
+    role: 'Solution Architect',
+    period: 'October 2021 – May 2022',
+    tech: 'AWS, Python, Kubernetes, Kong Gateway, T24, SWIFT',
+    bullets: [
+      'Assessed and modernised core banking middleware from monolith to microservices/API-led architecture; authored the cloud migration blueprint.',
+      'Derived API rate limits, timeouts, and performance benchmarks for banking workloads integrated with Core Banking (T24) and SWIFT.',
+    ],
+  },
+  {
+    title: 'Neo Banking Platform',
+    client: 'Leading Bank, Bahrain',
+    role: 'Solution Architect',
+    period: 'January 2021 – August 2021',
+    tech: 'Java, Microservices, AWS, Backbase, iOS, Android, Kubernetes, Helm',
+    bullets: [
+      'Delivered an omnichannel banking app covering onboarding, KYC, CASA account opening, and core retail banking, integrated with Core Banking (FLEXCUBE).',
+      'Defined backend architecture for payments, cards, transfers, and digital wallet features; secured IAM integration via Keycloak.',
+    ],
+  },
+  {
+    title: 'Fuel Pay',
+    client: 'Major US Convenience Store & Fuel Retailer',
+    role: 'Solution Architect',
+    period: 'January 2019 – February 2020',
+    tech: 'Java, Microservices, AWS, iOS, Android, Google Analytics',
+    bullets: [
+      'Designed backend architecture for a contactless mobile fuel payment app, integrating third-party services and the P97 payment gateway.',
+    ],
+  },
+  {
+    title: 'Event Management System',
+    client: 'Global Cloud Computing Platform Provider',
+    role: 'Solution Architect',
+    period: 'July 2017 – December 2018',
+    tech: 'Node.js, AWS, Ionic, Cordova',
+    bullets: [
+      'Designed backend architecture and led technical delivery for a conference event-discovery, booking, and travel-planning platform.',
+    ],
+  },
+  {
+    title: 'Cross-Border Trade Management (TRIMS)',
+    client: 'Leading Bank – Global Trade Finance Division',
+    role: 'Tech Lead',
+    period: 'June 2015 – July 2017',
+    tech: 'Java, Oracle, PL/SQL, WebSphere',
+    bullets: [
+      'Led the technical team delivering an end-to-end global trade-processing platform spanning importer-to-exporter workflows across all trade products.',
+    ],
+  },
+];
+
+const employment = [
+  { company: 'Nagarro', title: 'Associate Distinguished Engineer', period: 'September 2021 – Present' },
+  { company: 'Mobiquity', title: 'Principal Engineer', period: 'July 2017 – August 2021' },
+  { company: 'Citicorp Services India Limited', title: 'Manager (Tech Lead)', period: 'June 2015 – July 2017' },
+  { company: 'Tieto Software Technologies Ltd.', title: 'Lead Software Engineer', period: 'December 2009 – May 2015' },
+  { company: 'Clarice Technologies Pvt. Ltd.', title: 'Senior Software Engineer', period: 'November 2008 – December 2009' },
+  { company: 'Spartan Labs Pvt. Ltd.', title: 'Software Engineer', period: 'August 2007 – October 2008' },
+  { company: 'Inbitech Solutions', title: 'Software Engineer', period: 'May 2006 – August 2007' },
+];
+---
+
+<Layout
+  title="Resume | Kunal Patil"
+  description="Senior Solution Architect and GenAI Architect with 20+ years experience across AI/GenAI, cloud architecture, and enterprise software delivery."
+>
+  <!-- Header -->
+  <section class="hero-panel reveal rounded-3xl p-6 sm:p-8">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div>
+        <h1 class="text-3xl font-bold text-slate-50 sm:text-4xl">Kunal Patil</h1>
+        <p class="mt-1 text-base font-medium text-cyan-100">Senior Solution Architect · Principal Engineer · GenAI Architect</p>
+        <p class="mt-2 text-sm text-slate-300">Pune, India &nbsp;·&nbsp; patilkunals@gmail.com &nbsp;·&nbsp;
+          <a href="https://linkedin.com/in/patilkunals" target="_blank" rel="noreferrer" class="underline hover:text-cyan-300">linkedin.com/in/patilkunals</a>
+        </p>
+      </div>
+      <a
+        href="/Resume_Kunal_Patil.pdf"
+        download
+        class="glass-link shrink-0 self-start rounded-md px-4 py-2 text-sm font-medium"
+      >
+        Download PDF
+      </a>
+    </div>
+  </section>
+
+  <!-- Professional Summary -->
+  <section class="glass-card reveal mt-6 rounded-2xl p-5 sm:p-6" id="summary">
+    <h2 class="mb-3 text-xl font-semibold text-slate-50">Professional Summary</h2>
+    <p class="text-sm leading-7 text-slate-200">
+      Senior technology leader and solution architect with <strong class="text-slate-50">20+ years</strong> of experience across AI/GenAI, cloud architecture, and enterprise software delivery in Core Banking, Insurance, Retail, and Telecom. Proven record designing and delivering AI-powered, secure, scalable cloud-native architectures on AWS, integrating core banking with digital channels, payments, AML, CRM, and regulatory systems. Deep expertise in GenAI and Agentic AI solutions using RAG, LangChain, LangGraph, Model Context Protocol (MCP), and AWS Bedrock, combined with AWS serverless and microservices architecture — driving up to 40% faster response times and 14% revenue growth through modernisation of monolithic systems to cloud-native platforms. Skilled in architecture governance, RFP leadership, and translating business strategy into technical execution. Regularly mentors and upskills engineering teams of 20+ on cloud-native and GenAI engineering practices; author of internal engineering standards adopted org-wide.
+    </p>
+  </section>
+
+  <!-- Core Competencies -->
+  <section class="reveal mt-6" id="competencies">
+    <h2 class="mb-4 text-xl font-semibold text-slate-50">Core Competencies</h2>
+    <div class="stagger grid gap-3 sm:grid-cols-2">
+      {competencies.map((c) => (
+        <div class="glass-card reveal rounded-xl p-4">
+          <p class="text-sm font-semibold text-cyan-100">{c.label}</p>
+          <p class="mt-1 text-xs leading-5 text-slate-300">{c.detail}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Employment History -->
+  <section class="glass-card reveal mt-6 rounded-2xl p-5 sm:p-6" id="employment">
+    <h2 class="mb-5 text-xl font-semibold text-slate-50">Employment History</h2>
+    <ol class="relative border-l border-white/20 pl-6 space-y-5">
+      {employment.map((e) => (
+        <li class="relative">
+          <span class="absolute -left-[25px] top-1.5 h-3 w-3 rounded-full border border-cyan-300/50 bg-cyan-400/30"></span>
+          <p class="text-sm font-semibold text-slate-100">{e.company}</p>
+          <p class="text-xs text-cyan-100">{e.title}</p>
+          <p class="mt-0.5 text-xs text-slate-400">{e.period}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Recent Projects -->
+  <section class="mt-6" id="projects">
+    <h2 class="mb-4 text-xl font-semibold text-slate-50">Recent Projects</h2>
+    <div class="stagger space-y-4">
+      {projects.map((p) => (
+        <article class="glass-card reveal rounded-2xl p-5 sm:p-6">
+          <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+            <div>
+              <h3 class="text-base font-semibold text-slate-50">{p.title}</h3>
+              <p class="text-xs text-slate-300">{p.client}</p>
+            </div>
+            <span class="shrink-0 text-xs text-slate-400">{p.period}</span>
+          </div>
+          <p class="mt-1 text-xs font-medium text-cyan-100">{p.role}</p>
+          <p class="mt-1 text-xs text-slate-400 italic">{p.tech}</p>
+          <ul class="mt-3 space-y-1.5 pl-4">
+            {p.bullets.map((b) => (
+              <li class="list-disc text-sm leading-6 text-slate-200">{b}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Early Career -->
+  <section class="glass-card reveal mt-6 rounded-2xl p-5 sm:p-6" id="early-career">
+    <h2 class="mb-3 text-xl font-semibold text-slate-50">Early Career (2006–2015)</h2>
+    <p class="text-sm leading-7 text-slate-200">
+      Software Engineer to Lead Software Engineer at Tieto Software Technologies, Clarice Technologies, Spartan Labs, and Inbitech Solutions — delivering enterprise Java/J2EE applications across Core Banking, Trade Finance, and Enterprise Middleware platforms (Oracle, WebSphere, JBoss) for banking clients, building the technical foundation for architecture and delivery leadership. Full project details available on request.
+    </p>
+  </section>
+
+  <!-- Certifications & Education -->
+  <div class="mt-6 grid gap-4 sm:grid-cols-2">
+    <section class="glass-card reveal rounded-2xl p-5" id="certifications">
+      <h2 class="mb-3 text-xl font-semibold text-slate-50">Certifications</h2>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-2 text-sm text-slate-200">
+          <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400"></span>
+          AWS Certified Solutions Architect – Associate
+        </li>
+      </ul>
+    </section>
+
+    <section class="glass-card reveal rounded-2xl p-5" id="education">
+      <h2 class="mb-3 text-xl font-semibold text-slate-50">Education</h2>
+      <p class="text-sm font-medium text-slate-100">Bachelor of Engineering – Information Technology</p>
+      <p class="mt-1 text-xs text-slate-300">Bharati Vidyapeeth's College of Engineering, Kolhapur, Maharashtra, India</p>
+      <p class="mt-0.5 text-xs text-slate-400">2006</p>
+    </section>
+  </div>
+
+  <!-- Download CTA -->
+  <section class="reveal mt-8 flex justify-center">
+    <a
+      href="/Resume_Kunal_Patil.pdf"
+      download
+      class="glass-link rounded-lg px-6 py-3 text-sm font-semibold"
+    >
+      Download Full Resume (PDF)
+    </a>
+  </section>
+</Layout>

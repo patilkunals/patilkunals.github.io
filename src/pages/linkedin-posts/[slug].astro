@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import generated from '../../data/linkedin-posts.generated.json';
+
+interface Post {
+  slug: string;
+  pdfFile: string;
+  pdfUrl: string;
+  title: string;
+  excerpt: string;
+  postDate: string | null;
+  source: 'sidecar' | 'pdf-extraction';
+}
+
+export async function getStaticPaths() {
+  const posts = generated.posts as Post[];
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: Post };
+
+const displayDate = post.postDate
+  ? new Date(post.postDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  : null;
+---
+
+<Layout title={`${post.title} | LinkedIn Posts | Kunal Patil`} description={post.excerpt}>
+  <nav class="reveal mb-6 text-sm text-slate-400">
+    <a href="/linkedin-posts" class="hover:text-cyan-300">&larr; Back to LinkedIn Posts</a>
+  </nav>
+
+  <header class="reveal mb-6">
+    <div class="flex flex-wrap items-center gap-3">
+      {displayDate && (
+        <time class="text-xs text-slate-300" datetime={post.postDate ?? undefined}>{displayDate}</time>
+      )}
+    </div>
+    <h1 class="mt-3 text-2xl font-bold text-slate-50 sm:text-3xl">{post.title}</h1>
+    <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-200">{post.excerpt}</p>
+  </header>
+
+  <section class="reveal">
+    <div class="overflow-hidden rounded-2xl border border-white/20 bg-black/30 shadow-2xl" style="height: min(80vh, 900px)">
+      <object
+        data={post.pdfUrl}
+        type="application/pdf"
+        class="h-full w-full"
+        aria-label={`PDF: ${post.title}`}
+      >
+        <!-- Fallback for browsers that cannot render PDF inline -->
+        <div class="flex h-full flex-col items-center justify-center gap-4 p-8 text-center">
+          <p class="text-slate-300">Your browser cannot display this PDF inline.</p>
+          <a
+            href={post.pdfUrl}
+            download
+            class="glass-link rounded-md px-4 py-2 text-sm font-medium"
+          >
+            Download PDF instead
+          </a>
+        </div>
+      </object>
+    </div>
+
+    <div class="mt-4 flex flex-wrap gap-3">
+      <a
+        href={post.pdfUrl}
+        target="_blank"
+        rel="noreferrer"
+        class="glass-link rounded-md px-4 py-2 text-sm font-medium"
+      >
+        Open PDF in new tab
+      </a>
+      <a
+        href={post.pdfUrl}
+        download
+        class="glass-link rounded-md px-4 py-2 text-sm font-medium"
+      >
+        Download PDF
+      </a>
+    </div>
+  </section>
+</Layout>

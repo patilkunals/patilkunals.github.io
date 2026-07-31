@@ -1,0 +1,68 @@
+{
+  "generatedAt": "2026-07-31T14:07:27.916Z",
+  "posts": [
+    {
+      "slug": "ai-expanding-the-limits-of-what-s-achievable-linkedin",
+      "pdfFile": "AI_ expanding the limits of what's achievable! _ LinkedIn.pdf",
+      "pdfUrl": "/LinkedInPosts/AI_%20expanding%20the%20limits%20of%20what's%20achievable!%20_%20LinkedIn.pdf",
+      "title": "AI: Expanding the Limits of What's Achievable",
+      "excerpt": "A look at how AI expands what teams can automate, augment, and accelerate across enterprise work.",
+      "postDate": "2023-02-09",
+      "source": "sidecar"
+    },
+    {
+      "slug": "automated-solution-architecture-ai-is-revolutionizing-it-linkedin",
+      "pdfFile": "Automated solution architecture_ AI is revolutionizing it _ LinkedIn.pdf",
+      "pdfUrl": "/LinkedInPosts/Automated%20solution%20architecture_%20AI%20is%20revolutionizing%20it%20_%20LinkedIn.pdf",
+      "title": "Automated Solution Architecture: AI Is Revolutionizing It",
+      "excerpt": "An exploration of how AI changes the way architects design, document, and evolve solutions.",
+      "postDate": "2023-04-03",
+      "source": "sidecar"
+    },
+    {
+      "slug": "chatgpt-for-the-development-of-a-new-browser-plugin-linkedin",
+      "pdfFile": "ChatGPT for the development of a new browser plugin! _ LinkedIn.pdf",
+      "pdfUrl": "/LinkedInPosts/ChatGPT%20for%20the%20development%20of%20a%20new%20browser%20plugin!%20_%20LinkedIn.pdf",
+      "title": "ChatGPT for the Development of a New Browser Plugin",
+      "excerpt": "ChatGPT can accelerate plugin prototyping and experiment design for browser extensions.",
+      "postDate": "2023-02-13",
+      "source": "sidecar"
+    },
+    {
+      "slug": "exploring-ai-insights-on-personality-linkedin",
+      "pdfFile": "Exploring AI Insights on Personality _ LinkedIn.pdf",
+      "pdfUrl": "/LinkedInPosts/Exploring%20AI%20Insights%20on%20Personality%20_%20LinkedIn.pdf",
+      "title": "Exploring AI Insights on Personality",
+      "excerpt": "Reflections on how AI can surface personality signals, behavior patterns, and practical implications.",
+      "postDate": "2024-10-17",
+      "source": "sidecar"
+    },
+    {
+      "slug": "is-artificial-intelligence-real-linkedin",
+      "pdfFile": "Is Artificial _Intelligence_ Real_ _ LinkedIn.pdf",
+      "pdfUrl": "/LinkedInPosts/Is%20Artificial%20_Intelligence_%20Real_%20_%20LinkedIn.pdf",
+      "title": "Is Artificial Intelligence Real?",
+      "excerpt": "A provocative take on what intelligence means when systems can generate convincing answers without understanding.",
+      "postDate": "2024-06-20",
+      "source": "sidecar"
+    },
+    {
+      "slug": "problem-solving-a-recent-use-case-linkedin",
+      "pdfFile": "Problem Solving - A Recent Use Case _ LinkedIn.pdf",
+      "pdfUrl": "/LinkedInPosts/Problem%20Solving%20-%20A%20Recent%20Use%20Case%20_%20LinkedIn.pdf",
+      "title": "Problem Solving - A Recent Use Case",
+      "excerpt": "A recent problem-solving case study showing how structured analysis turns ambiguity into an actionable solution.",
+      "postDate": "2022-07-05",
+      "source": "sidecar"
+    },
+    {
+      "slug": "the-ever-evolving-it-landscape-why-learning-is-the-key-linkedin",
+      "pdfFile": "The Ever-Evolving IT Landscape_ Why Learning is the Key_ _ LinkedIn.pdf",
+      "pdfUrl": "/LinkedInPosts/The%20Ever-Evolving%20IT%20Landscape_%20Why%20Learning%20is%20the%20Key_%20_%20LinkedIn.pdf",
+      "title": "The Ever-Evolving IT Landscape: Why Learning Is the Key",
+      "excerpt": "Why continuous learning remains the differentiator in a fast-moving IT landscape.",
+      "postDate": "2024-08-09",
+      "source": "sidecar"
+    }
+  ]
+}
